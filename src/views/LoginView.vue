@@ -1,39 +1,40 @@
 <template>
-    <div class="login-box" >
-        <el-form
-            ref="ruleFormRef"
-            :model="ruleForm"
-            status-icon
-            :rules="rules"
-            label-width="80px"
-            class="demo-ruleForm"
-        >
-				<h2>管理システム</h2>
-            <el-form-item label="LoginId" prop="username">
-                <el-input v-model="ruleForm.username" autocomplete="off" />
-            </el-form-item>
-            <el-form-item label="Password" prop="password">
-                <el-input
-                    v-model="ruleForm.password"
-                    type="password"
-                    autocomplete="off"
-                />
-            </el-form-item>
-            <el-form-item>
-                <el-button type="primary" @click="submitForm(ruleFormRef)">Submit</el-button>
-                <el-button @click="resetForm(ruleFormRef)">Reset</el-button>
-            </el-form-item>
-        </el-form>
-    </div>
+	<div class="login-box" >
+		<el-form
+			ref="ruleFormRef"
+			:model="ruleForm"
+			status-icon
+			:rules="rules"
+			label-width="80px"
+			class="demo-ruleForm"
+		>
+		<h2>管理システム</h2>
+			<el-form-item label="LoginId" prop="username">
+				<el-input v-model="ruleForm.username" autocomplete="off" />
+			</el-form-item>
+			<el-form-item label="Password" prop="password">
+				<el-input
+						v-model="ruleForm.password"
+						type="password"
+						autocomplete="off"
+				/>
+			</el-form-item>
+			<el-form-item>
+				<el-button type="primary" @click="submitForm(ruleFormRef)">Submit</el-button>
+				<el-button @click="resetForm(ruleForm)">Reset</el-button>
+			</el-form-item>
+		</el-form>
+	</div>
 </template>
 
 <script lang="ts">
+import { LoginForm, RuleForm } from '@/type/login'
 import { FormInstance } from 'element-plus'
 import { defineComponent, reactive, ref, toRefs } from 'vue'
 
 export default defineComponent({
 	setup () {
-		const data = reactive({
+		const data = reactive<LoginForm>({
 			ruleForm: {
 				username: "",
 				password: ""
@@ -67,14 +68,14 @@ export default defineComponent({
 				]
 			}
 		})
-
-		
-		
-
-		
+		const resetForm = (data: RuleForm) => {
+			data.password = ""
+			data.username = ""
+		}
 
 		return {
 			...toRefs(data),
+			resetForm
 		}
 	}
 })
