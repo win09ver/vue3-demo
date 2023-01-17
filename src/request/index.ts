@@ -1,10 +1,10 @@
-import axios from "axios";
+import axios, { AxiosInstance } from "axios";
 
 const fastMock = "https://www.fastmock.site/mock/bf1fcb3c2e2945669c2c8d0ecb8009b8/api"
 const mockType = 'cbzMock'  // fastMock
 const baseURL = mockType === 'cbzMock' ? 'https://mock.presstime.cn/mock/63569fbbbee0a00099ca48a1/api/vue-ts-mall-demo' : 'https://www.fastmock.site/mock/bf1fcb3c2e2945669c2c8d0ecb8009b8/api'
 //创建axios实例
-const service = axios.create({
+const service: AxiosInstance = axios.create({
     baseURL,
     timeout: 5000,
     headers: {
@@ -16,7 +16,8 @@ const service = axios.create({
 service.interceptors.request.use((config) => {
     config.headers = config.headers || {}
     if(localStorage.getItem("token")){
-        config.headers.token = localStorage.getItem("token") || ""
+        const header: any = config.headers
+        header.token = localStorage.getItem("token") || ""
     }
     return config
 })
