@@ -1,9 +1,9 @@
-export interface RuleForm {
-    username: string
+export interface UserInfo {
+username: string
     password: string
 }
 
 export interface LoginForm {
-    ruleForm: RuleForm
+    ruleForm: UserInfo
     rules: any
 }

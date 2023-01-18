@@ -20,7 +20,7 @@
 				/>
 			</el-form-item>
 			<el-form-item>
-				<el-button type="primary" @click="submitForm(ruleFormRef)">Submit</el-button>
+				<my-btn :type="btnData.type" :plain="btnData.plain" :name="btnData.name" :icon="btnData.icon" @onClick="onClick">Submit</my-btn>
 				<el-button @click="resetForm(ruleForm)">Reset</el-button>
 			</el-form-item>
 		</el-form>
@@ -28,12 +28,24 @@
 </template>
 
 <script lang="ts">
-import { LoginForm, RuleForm } from '@/type/login'
+import MyBtn from '@/components/L1/MyBtn.vue'
+import { LoginForm, UserInfo } from '@/type/login'
 import { FormInstance } from 'element-plus'
+import {
+  Star,
+} from '@element-plus/icons-vue'
+
 import { defineComponent, reactive, ref, toRefs } from 'vue'
 
 export default defineComponent({
+  components: { MyBtn },
 	setup () {
+		const btnData = reactive({
+			type: "success",
+			name: "Submit",
+			plain: false,
+			icon: Star // icon 要import
+		})
 		const data = reactive<LoginForm>({
 			ruleForm: {
 				username: "",
@@ -68,13 +80,19 @@ export default defineComponent({
 				]
 			}
 		})
-		const resetForm = (data: RuleForm) => {
+		const resetForm = (data: UserInfo) => {
 			data.password = ""
 			data.username = ""
 		}
 
+		const onClick = (name:string, event: any) => {
+			console.log("event", name, event)
+		}
+
 		return {
 			...toRefs(data),
+			onClick,
+			btnData,
 			resetForm
 		}
 	}
