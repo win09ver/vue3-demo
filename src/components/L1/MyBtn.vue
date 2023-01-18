@@ -25,8 +25,7 @@ export default defineComponent ({
       default: false
     },
     icon: {
-      type: String,
-      default: ""
+      type: String
     },
     callback: {
       type: Function as PropType<() => void>

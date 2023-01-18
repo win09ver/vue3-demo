@@ -63,3 +63,7 @@ ctrl + shift + p ⇒　snippets ⇒　configure user snippets ⇒　vue.json
 
 ## lint prettier setting
 https://qiita.com/TigRig/items/36ed8e062d1c32c12b63
+
+## json server
+yarn global add json-server
+json-server --watch data.json --port 8888

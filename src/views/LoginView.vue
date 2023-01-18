@@ -20,8 +20,8 @@
 				/>
 			</el-form-item>
 			<el-form-item>
-				<my-btn :type="btnData.type" :plain="btnData.plain" :name="btnData.name" :icon="btnData.icon" @onClick="onClick">Submit</my-btn>
-				<el-button @click="resetForm(ruleForm)">Reset</el-button>
+				<my-btn :type="submitBtnData.type" :plain="submitBtnData.plain" :name="submitBtnData.name" :icon="submitBtnData.icon" @onClick="onClick">Submit</my-btn>
+				<my-btn :plain="resetBtnData.plain" :name="resetBtnData.name" :icon="resetBtnData.icon" @onClick="onClick">Submit</my-btn>
 			</el-form-item>
 		</el-form>
 	</div>
@@ -30,9 +30,10 @@
 <script lang="ts">
 import MyBtn from '@/components/L1/MyBtn.vue'
 import { LoginForm, UserInfo } from '@/type/login'
-import { FormInstance } from 'element-plus'
+import { UPPER_1LOWEER_1SPECIAL } from '@/utils/verfifcation'
 import {
   Star,
+	Edit,
 } from '@element-plus/icons-vue'
 
 import { defineComponent, reactive, ref, toRefs } from 'vue'
@@ -40,11 +41,16 @@ import { defineComponent, reactive, ref, toRefs } from 'vue'
 export default defineComponent({
   components: { MyBtn },
 	setup () {
-		const btnData = reactive({
+		const submitBtnData = reactive({
 			type: "success",
 			name: "Submit",
 			plain: false,
-			icon: Star // icon 要import
+			icon: Star as unknown as string// icon 要import
+		})
+		const resetBtnData = reactive({
+			name: "Reset",
+			plain: true,
+			icon: Edit as unknown as string// icon 要import
 		})
 		const data = reactive<LoginForm>({
 			ruleForm: {
@@ -72,14 +78,14 @@ export default defineComponent({
 						trigger: "blur"
 					},
 					{
-						min: 3,
-						max: 10,
-						message: "Length should be 3-10",
+						pattern: UPPER_1LOWEER_1SPECIAL,
+						message: "at least one upper letter,one lower letter and 1 special char",
 						trigger: "blur"
 					}
 				]
 			}
 		})
+
 		const resetForm = (data: UserInfo) => {
 			data.password = ""
 			data.username = ""
@@ -87,12 +93,14 @@ export default defineComponent({
 
 		const onClick = (name:string, event: any) => {
 			console.log("event", name, event)
+			console.log("data", data)
 		}
 
 		return {
 			...toRefs(data),
 			onClick,
-			btnData,
+			submitBtnData,
+			resetBtnData,
 			resetForm
 		}
 	}

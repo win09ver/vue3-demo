@@ -1,5 +1,5 @@
 export interface UserInfo {
-username: string
+    username: string
     password: string
 }
 
