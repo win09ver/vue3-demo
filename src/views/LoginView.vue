@@ -19,7 +19,7 @@
 						autocomplete="off"
 				/>
 			</el-form-item>
-			<el-form-item>
+			<el-form-item class="demo-btn-group">
 				<my-btn :type="submitBtnData.type" :plain="submitBtnData.plain" :name="submitBtnData.name" :icon="submitBtnData.icon" @onClick="onClick">Submit</my-btn>
 				<my-btn :plain="resetBtnData.plain" :name="resetBtnData.name" :icon="resetBtnData.icon" @onClick="onClick">Submit</my-btn>
 			</el-form-item>
@@ -120,6 +120,9 @@ export default defineComponent({
 		background-color: white;
 		padding: 30px;
 		border-radius: 40px;
+	}
+	.demo-btn-group {
+		display: inline-block;
 	}
 	h2 {
 		margin-bottom: 2px;

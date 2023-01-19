@@ -10,7 +10,7 @@
 
 <script lang='ts'>
 
-import { defineComponent, reactive, toRefs, PropType } from 'vue'
+import { defineComponent, reactive, toRefs, PropType, Component } from 'vue'
 export default defineComponent ({
   name: 'MyBtn',
   components: {},
@@ -25,7 +25,7 @@ export default defineComponent ({
       default: false
     },
     icon: {
-      type: String
+      type: Object as PropType<Component>,
     },
     callback: {
       type: Function as PropType<() => void>
