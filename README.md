@@ -67,3 +67,6 @@ https://qiita.com/TigRig/items/36ed8e062d1c32c12b63
 ## json server
 yarn global add json-server
 json-server --watch data.json --port 8888
+
+## set env
+must add prefix VUE_APP_

@@ -33,10 +33,12 @@ import { LoginForm, UserInfo } from '@/type/login'
 import { UPPER_1LOWEER_1SPECIAL } from '@/utils/verfifcation'
 import {
   Star,
-	Edit,
+  Edit,
 } from '@element-plus/icons-vue'
 
 import { defineComponent, reactive, ref, toRefs } from 'vue'
+import { Method } from '@babel/types'
+import { link, url } from '@/request'
 
 export default defineComponent({
   components: { MyBtn },
@@ -91,9 +93,11 @@ export default defineComponent({
 			data.username = ""
 		}
 
-		const onClick = (name:string, event: any) => {
+		const onClick = async (name:string, event: any) => {
 			console.log("event", name, event)
 			console.log("data", data)
+			const resp = await link(url.one, "GET")
+			console.log("resp", resp)
 		}
 
 		return {
