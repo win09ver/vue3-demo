@@ -70,3 +70,5 @@ json-server --watch data.json --port 8888
 
 ## set env
 must add prefix VUE_APP_
+
+hahah
