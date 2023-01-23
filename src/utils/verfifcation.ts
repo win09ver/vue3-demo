@@ -12,3 +12,29 @@ export const checkPassword = (inputedPassWd: string) => {
   return !reg.test(inputedPassWd) ? true : false
 }
 
+export const userNameRule = [
+  {
+    required: true,
+    message: "Please input messages",
+    trigger: "blur"
+  },
+  {
+    min: 3,
+    max: 6,
+    message: "Length should be 3-6",
+    trigger: "blur"
+  }
+]
+
+export const passwordRule = [
+  {
+    required: true,
+    message: "Please input password",
+    trigger: "blur"
+  },
+  {
+    pattern: UPPER_1LOWEER_1SPECIAL,
+    message: "at least one upper letter,one lower letter and 1 special char",
+    trigger: "blur"
+  }
+]

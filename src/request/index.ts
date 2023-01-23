@@ -5,7 +5,8 @@ console.log(process.env)
 const baseURL = process.env.VUE_APP_BASE_ADDR
 
 export const url = {
-    one: "/one"
+    one: "/one",
+    register: "/register"
 }
 
 // export link service

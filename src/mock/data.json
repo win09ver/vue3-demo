@@ -4,5 +4,8 @@
     {"name": "MF"},
     {"name": "NOC"},
     {"name": "EA"}
+  ],
+  "register": [
+    {"id":"1", "name":"wpp", "email":"win09ver@gmail.com", "passwork":"123456"}
   ]
 }
