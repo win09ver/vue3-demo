@@ -72,18 +72,18 @@ export default defineComponent({
 			type: "success",
 			name: "Submit",
 			plain: false,
-			icon: Star as unknown as string// icon 要import
+			icon: Star // icon 要import
 		})
 		const resetBtnData = reactive({
 			name: "Reset",
 			plain: true,
-			icon: Edit as unknown as string// icon 要import
+			icon: Edit // icon 要import
 		})
 		const signUpBtnData = reactive({
 			type: "success",
 			name: "Sign Up",
 			plain: false,
-			icon: Star as unknown as string// icon 要import
+			icon: Star // icon 要import
 		})
 		const data = reactive<LoginForm>({
 			ruleForm: {
@@ -116,8 +116,6 @@ export default defineComponent({
 		}
 
 		const onClick = async (name:string, event: Event) => {
-			console.log("event", name, event)
-			console.log("data", data)
 			const resp = await link(url.one, "GET")
 			console.log("resp", resp)
 		}
