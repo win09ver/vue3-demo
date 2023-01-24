@@ -116,8 +116,14 @@ export default defineComponent({
 		}
 
 		const onClick = async (name:string, event: Event) => {
-			const resp = await link(url.one, "GET")
-			console.log("resp", resp)
+			console.log("activeName",activeName.value)
+			if (activeName.value === "signin") {
+				const resp = await link(url.one, "GET")
+				console.log("resp", resp)
+			} else if (activeName.value === "signup") {
+				console.log("signup")
+			}
+			
 		}
 
 		const tabClick = (tab: TabsPaneContext, event: Event) => {
