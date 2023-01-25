@@ -1,4 +1,5 @@
 import axios, { AxiosInstance, Method } from "axios";
+import { ElMessage } from "element-plus";
 
 console.log(process.env)
 //create axios instance
@@ -38,13 +39,17 @@ const service: AxiosInstance = axios.create(
 )
 
 //request interceptors
-service.interceptors.request.use((config) => {
+service.interceptors.request.use(
+    (config) => {
     if(localStorage.getItem("token")){
         config.headers = config.headers || {}
         const header: any = config.headers
         header.token = localStorage.getItem("token") || ""
     }
     return config
+}, (err) => {
+    console.log("err", err)
+    return Promise.reject(err)
 })
 
 //response interceptors
@@ -56,6 +61,18 @@ service.interceptors.response.use(({ data }) => {
     return data
 },(err) => {
     console.log(err)
+    switch (err.response.status) {
+        case 404:
+            ElMessage.error("404 err")
+            break;
+        case 500:
+            ElMessage.error("500 err")
+            break;
+        default:
+            ElMessage.error("unknown err")
+            break;
+    }
+    return Promise.reject(err)
 })
 
 export default service

@@ -10,6 +10,7 @@
 			>
 			<h2>管理システム</h2>
 				<el-tabs v-model="activeName" type="card" @tab-click="tabClick" class="demo-tabs">
+					<!-- sign in -->
 					<el-tab-pane label="Sign In" name="signin">
 						<el-form-item label="LoginId" prop="username">
 							<el-input v-model="ruleForm.username" autocomplete="off" />
@@ -26,7 +27,7 @@
 							<my-btn :plain="resetBtnData.plain" :name="resetBtnData.name" :icon="resetBtnData.icon" @onClick="onClick">Submit</my-btn>
 						</el-form-item>
 					</el-tab-pane>
-
+					<!-- sign up -->
 					<el-tab-pane label="Sign Up" name="signup">
 						<el-form-item label="UserName" prop="signUpUsername">
 							<el-input v-model="ruleForm.signUpUsername" autocomplete="off" />
@@ -58,18 +59,20 @@ import {
   Star,
   Edit,
 } from '@element-plus/icons-vue'
-
+import { useRouter } from 'vue-router'
 import { defineComponent, reactive, ref, toRefs } from 'vue'
 import { Method } from '@babel/types'
 import { link, url } from '@/request'
 import { TabsPaneContext } from 'element-plus/es/tokens/tabs'
-import { FormInstance } from 'element-plus'
+import { ElMessage, FormInstance } from 'element-plus'
 
 export default defineComponent({
+  name: "LoginView",
   components: { MyBtn },
 	setup () {
 		const ruleFormRef = ref<FormInstance>()
 		const activeName = ref('signin')
+		const router = useRouter()
 		const submitBtnData = reactive({
 			type: "success",
 			name: "Submit",
@@ -114,27 +117,47 @@ export default defineComponent({
 			}
 		})
 
-		const resetForm = (data: UserInfo) => {
-			data.password = ""
-			data.username = ""
-		}
-
+		// btn event
 		const onClick = async (name:string, event: Event) => {
-			console.log("ruleFormRef",ruleFormRef)
+			// sign in event
 			if (activeName.value === "signin") {
-				await ruleFormRef.value?.validate(async (valid, fields) => {
-					if (valid) {
-						console.log('submit!')
+				// reset
+				if (name === resetBtnData.name) {
+					data.ruleForm.username = ""
+					data.ruleForm.password = ""
+					return
+				}
+				ruleFormRef.value?.validate(async (_, fields) => {
+					if (fields?.username || fields?.password) {
+						ElMessage.error("validation err")
+						return
+					} else {
 						const resp = await link(url.one, "GET")
 						console.log("resp", resp)
-					} else {
-						console.log('error submit!', fields)
+						router.push('/home')
 					}
 				})
+			// sign up event
 			} else if (activeName.value === "signup") {
-				console.log("signup")
+				const {signUpUsername, signUpPassword, mail} = data.ruleForm
+				// 将来型をDTOに変換すべき
+				ruleFormRef.value?.validate(async (_, fields) => {
+					if (fields?.signUpUsername || fields?.signUpPassword || fields?.mail) {
+						ElMessage.error("validation err")
+						return
+					} else {
+						const result:any = await link(url.register, "POST", {signUpUsername, signUpPassword, mail})
+						if (Object.keys(result).length > 0) {
+							ElMessage.success("sign up scccessfully")
+							activeName.value = "signin"
+							data.ruleForm.username = signUpUsername
+							data.ruleForm.signUpUsername = ""
+							data.ruleForm.signUpPassword = ""
+							data.ruleForm.mail = ""
+						}
+					}
+				})
 			}
-			
 		}
 
 		const tabClick = (tab: TabsPaneContext, event: Event) => {
@@ -149,7 +172,6 @@ export default defineComponent({
 			submitBtnData,
 			signUpBtnData,
 			resetBtnData,
-			resetForm,
 			activeName
 		}
 	}
@@ -180,7 +202,6 @@ export default defineComponent({
 		margin-bottom: 20px;
 	}
 }
-
 
 .demo-tabs ::v-deep(.el-tabs__content) {
 	padding-left: 20px;

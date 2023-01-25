@@ -1,11 +1,60 @@
 {
   "one": [
-    {"name": "EZ"},
-    {"name": "MF"},
-    {"name": "NOC"},
-    {"name": "EA"}
+    {
+      "name": "EZ"
+    },
+    {
+      "name": "MF"
+    },
+    {
+      "name": "NOC"
+    },
+    {
+      "name": "EA"
+    }
   ],
   "register": [
-    {"id":"1", "name":"wpp", "email":"win09ver@gmail.com", "passwork":"123456"}
+    {
+      "id": "1",
+      "name": "wpp",
+      "email": "win09ver@gmail.com",
+      "passwork": "123456"
+    },
+    {
+      "signUpUsername": "123",
+      "signUpPassword": "1234",
+      "mail": "121",
+      "id": "bz2gq6C"
+    },
+    {
+      "signUpUsername": "sdf",
+      "signUpPassword": "sdfgsdgfs",
+      "mail": "sdfgsgd",
+      "id": "QyiNTYd"
+    },
+    {
+      "signUpUsername": "1323",
+      "signUpPassword": "12awerasdf",
+      "mail": "2323",
+      "id": "SN7Iprw"
+    },
+    {
+      "signUpUsername": "1234454",
+      "signUpPassword": "4444444",
+      "mail": "1212",
+      "id": "Wy2liYw"
+    },
+    {
+      "signUpUsername": "wppp",
+      "signUpPassword": "3456666",
+      "mail": "afasdf",
+      "id": "G1v3fCF"
+    },
+    {
+      "signUpUsername": "1212",
+      "signUpPassword": "1qw2-Q",
+      "mail": "1212",
+      "id": "9J7tKbN"
+    }
   ]
 }
