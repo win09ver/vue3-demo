@@ -3,6 +3,7 @@
   :type="type" 
   :plain="plain" 
   :icon="icon"
+  :disabled="disabled"
   @click="onClick($event)">
     {{name}}
   </el-button>
@@ -26,6 +27,10 @@ export default defineComponent ({
     },
     icon: {
       type: Object as PropType<Component>,
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
     },
     callback: {
       type: Function as PropType<() => void>

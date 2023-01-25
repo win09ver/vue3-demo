@@ -63,20 +63,24 @@ import { defineComponent, reactive, ref, toRefs } from 'vue'
 import { Method } from '@babel/types'
 import { link, url } from '@/request'
 import { TabsPaneContext } from 'element-plus/es/tokens/tabs'
+import { FormInstance } from 'element-plus'
 
 export default defineComponent({
   components: { MyBtn },
 	setup () {
+		const ruleFormRef = ref<FormInstance>()
 		const activeName = ref('signin')
 		const submitBtnData = reactive({
 			type: "success",
 			name: "Submit",
 			plain: false,
+			disabled: false,
 			icon: Star // icon 要import
 		})
 		const resetBtnData = reactive({
 			name: "Reset",
 			plain: true,
+			disabled: false,
 			icon: Edit // icon 要import
 		})
 		const signUpBtnData = reactive({
@@ -116,10 +120,17 @@ export default defineComponent({
 		}
 
 		const onClick = async (name:string, event: Event) => {
-			console.log("activeName",activeName.value)
+			console.log("ruleFormRef",ruleFormRef)
 			if (activeName.value === "signin") {
-				const resp = await link(url.one, "GET")
-				console.log("resp", resp)
+				await ruleFormRef.value?.validate(async (valid, fields) => {
+					if (valid) {
+						console.log('submit!')
+						const resp = await link(url.one, "GET")
+						console.log("resp", resp)
+					} else {
+						console.log('error submit!', fields)
+					}
+				})
 			} else if (activeName.value === "signup") {
 				console.log("signup")
 			}
@@ -132,6 +143,7 @@ export default defineComponent({
 
 		return {
 			...toRefs(data),
+			ruleFormRef,
 			onClick,
 			tabClick,
 			submitBtnData,
