@@ -5,6 +5,7 @@
       class="el-menu-vertical-demo"
       default-active="2"
       text-color="#fff"
+      :collapse="!$store.state.HomeModule.navBool"
       @open="handleOpen"
       @close="handleClose"
     >
@@ -42,9 +43,20 @@
 
 <script lang='ts'>
 import { defineComponent, reactive, toRefs, PropType } from 'vue'
+import {
+  Location,
+  Menu as IconMenu,
+  Setting,
+  Document,
+} from '@element-plus/icons-vue'
 export default defineComponent ({
   name: 'LeftSide',
-  components: {},
+  components: {
+    Location,
+    IconMenu,
+    Setting,
+    Document,
+  },
   props: {},
   emits: ['onClick'],
   setup(props, ctx) {

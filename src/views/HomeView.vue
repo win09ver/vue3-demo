@@ -1,11 +1,13 @@
 <template>
     <div class="common-layout">
         <el-container>
-            <el-aside width="200px">
-                <left-side />
+            <el-aside width="auto">
+                <left-side/>
             </el-aside>
             <el-container>
-                <el-header>Header</el-header>
+                <el-header>
+                    <rigth-top/>
+                </el-header>
                 <el-main>Main</el-main>
             </el-container>
         </el-container>
@@ -15,11 +17,13 @@
 <script lang='ts'>
 import { defineComponent, reactive, toRefs } from 'vue'
 import LeftSide from '@/components/L4/LeftSide.vue'
+import RigthTop from '@/components/L4/RigthTop.vue'
 
 export default defineComponent ({
   name: 'HomeView',
   components: {
     LeftSide,
+    RigthTop,
   },
   emits: ['onClick'],
   setup(props, ctx) {
@@ -39,9 +43,11 @@ export default defineComponent ({
 }
 .el-header {
     background-color: gold;
+    width: 100%;
 }
 .el-main {
     background-color: burlywood;
+    width: 100%;
 }
 .el-aside, .el-container, .common-layout, #app, body, html {
     height: 100%;
