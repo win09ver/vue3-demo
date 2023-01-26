@@ -1,7 +1,9 @@
 <template>
     <div class="common-layout">
         <el-container>
-            <el-aside width="200px">Aside</el-aside>
+            <el-aside width="200px">
+                <left-side />
+            </el-aside>
             <el-container>
                 <el-header>Header</el-header>
                 <el-main>Main</el-main>
@@ -12,9 +14,13 @@
 
 <script lang='ts'>
 import { defineComponent, reactive, toRefs } from 'vue'
+import LeftSide from '@/components/L4/LeftSide.vue'
+
 export default defineComponent ({
   name: 'HomeView',
-  components: {},
+  components: {
+    LeftSide,
+  },
   emits: ['onClick'],
   setup(props, ctx) {
     console.log(ctx)

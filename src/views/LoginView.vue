@@ -61,14 +61,15 @@ import {
 } from '@element-plus/icons-vue'
 import { useRouter } from 'vue-router'
 import { defineComponent, reactive, ref, toRefs } from 'vue'
-import { Method } from '@babel/types'
 import { link, url } from '@/request'
 import { TabsPaneContext } from 'element-plus/es/tokens/tabs'
 import { ElMessage, FormInstance } from 'element-plus'
 
 export default defineComponent({
   name: "LoginView",
-  components: { MyBtn },
+  components: { 
+		MyBtn,
+	},
 	setup () {
 		const ruleFormRef = ref<FormInstance>()
 		const activeName = ref('signin')
@@ -96,11 +97,11 @@ export default defineComponent({
 			ruleForm: {
 				// sign in
 				username: "",
-				password: "",
+				password: "", // frontで暗号化するのかそれでもbackで暗号化するのかを要検討
 				// sign up
 				mail: "",
 				signUpUsername: "",
-				signUpPassword:""
+				signUpPassword:"" // frontで暗号化するのかそれでもbackで暗号化するのかを要検討
 			},
 			rules: {
 				username: userNameRule,
@@ -118,7 +119,7 @@ export default defineComponent({
 		})
 
 		// btn event
-		const onClick = async (name:string, event: Event) => {
+		const onClick = async (name:string) => {
 			// sign in event
 			if (activeName.value === "signin") {
 				// reset
@@ -127,7 +128,9 @@ export default defineComponent({
 					data.ruleForm.password = ""
 					return
 				}
+				// validateのパラメータ 1:valide:boolean, fields:err fields
 				ruleFormRef.value?.validate(async (_, fields) => {
+					// errあったら、fieldsにものが出る。signinの場合、usernameとpasswordしか関心しない
 					if (fields?.username || fields?.password) {
 						ElMessage.error("validation err")
 						return
@@ -140,13 +143,13 @@ export default defineComponent({
 			// sign up event
 			} else if (activeName.value === "signup") {
 				const {signUpUsername, signUpPassword, mail} = data.ruleForm
-				// 将来型をDTOに変換すべき
 				ruleFormRef.value?.validate(async (_, fields) => {
 					if (fields?.signUpUsername || fields?.signUpPassword || fields?.mail) {
 						ElMessage.error("validation err")
 						return
 					} else {
-						const result:any = await link(url.register, "POST", {signUpUsername, signUpPassword, mail})
+						// 将来型をDTOに変換すべき
+						const result: any = await link(url.register, "POST", {signUpUsername, signUpPassword, mail})
 						if (Object.keys(result).length > 0) {
 							ElMessage.success("sign up scccessfully")
 							activeName.value = "signin"
