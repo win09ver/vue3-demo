@@ -42,7 +42,7 @@
 </template>
 
 <script lang='ts'>
-import { defineComponent, reactive, toRefs, PropType } from 'vue'
+import { defineComponent } from 'vue'
 import {
   Location,
   Menu as IconMenu,
@@ -59,10 +59,7 @@ export default defineComponent ({
   },
   props: {},
   emits: ['onClick'],
-  setup(props, ctx) {
-    const data = reactive({})
-    const refData = toRefs(data)
-
+  setup() {
     const handleOpen = (key: string, keyPath: string[]) => {
       console.log(key, keyPath)
     }
@@ -70,7 +67,6 @@ export default defineComponent ({
       console.log(key, keyPath)
     }
     return {
-       ...refData,
        handleOpen,
        handleClose
     }

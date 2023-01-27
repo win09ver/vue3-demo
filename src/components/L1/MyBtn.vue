@@ -11,7 +11,7 @@
 
 <script lang='ts'>
 
-import { defineComponent, reactive, toRefs, PropType, Component } from 'vue'
+import { defineComponent, PropType, Component } from 'vue'
 export default defineComponent ({
   name: 'MyBtn',
   components: {},
@@ -41,7 +41,7 @@ export default defineComponent ({
     // },
   },
   setup(props, ctx) {
-    const onClick = (event: any) => {
+    const onClick = (event: Event) => {
       ctx.emit("onClick", props.name, event)
     }
     return {

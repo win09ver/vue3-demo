@@ -6,7 +6,7 @@
 </template>
 
 <script lang='ts'>
-import { defineComponent, reactive, ref, toRefs } from 'vue'
+import { defineComponent } from 'vue'
 import {CaretLeft, CaretRight} from '@element-plus/icons-vue'
 import { useStore } from 'vuex'
 export default defineComponent ({
@@ -15,7 +15,7 @@ export default defineComponent ({
     CaretLeft,
     CaretRight
   },
-  setup(props, ctx) {
+  setup() {
     const store = useStore()
     const onClick = () => {
         store.commit("setNavBool")

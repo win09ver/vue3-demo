@@ -11,7 +11,7 @@ export const url = {
 }
 
 // export link service
-export const link = (url: string, method: Method, data?:any, params?:any) => {
+export const link = (url: string, method: Method, data?:unknown, params?:unknown) => {
     return new Promise((resolve, reject) => {
         service.request({
             url,

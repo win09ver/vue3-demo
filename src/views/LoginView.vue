@@ -53,7 +53,7 @@
 
 <script lang="ts">
 import MyBtn from '@/components/L1/MyBtn.vue'
-import { LoginForm, UserInfo } from '@/type/login'
+import { LoginForm } from '@/type/login'
 import { passwordRule, userNameRule } from '@/utils/verfifcation'
 import {
   Star,
