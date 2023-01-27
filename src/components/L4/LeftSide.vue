@@ -3,63 +3,56 @@
       active-text-color="#ffd04b"
       background-color="#545c64"
       class="el-menu-vertical-demo"
-      default-active="2"
+      default-active=""
       text-color="#fff"
       :collapse="!$store.state.HomeModule.navBool"
       @open="handleOpen"
       @close="handleClose"
     >
-      <el-sub-menu index="1">
-        <template #title>
-          <el-icon><location /></el-icon>
-          <span>Navigator One</span>
-        </template>
-        <el-menu-item-group title="Group One">
-          <el-menu-item index="1-1">item one</el-menu-item>
-          <el-menu-item index="1-2">item two</el-menu-item>
-        </el-menu-item-group>
-        <el-menu-item-group title="Group Two">
-          <el-menu-item index="1-3">item three</el-menu-item>
-        </el-menu-item-group>
-        <el-sub-menu index="1-4">
-          <template #title>item four</template>
-          <el-menu-item index="1-4-1">item one</el-menu-item>
+      <template v-for="(el) in leftNavData" :key="el.path">
+        <!-- with pull down-->
+        <el-sub-menu :index="el.path" v-if="el.children">
+          <template #title>
+            <el-icon><component :is="el.meta.icon"></component></el-icon>
+            <span>{{el.meta.title}}</span>
+          </template>
+          <el-menu-item-group v-for="(childEl) in el.children" :key="childEl.path">
+            <el-menu-item v-if="el.children" :index="childEl.path">{{childEl.meta.title}}</el-menu-item>
+          </el-menu-item-group>
         </el-sub-menu>
-      </el-sub-menu>
-      <el-menu-item index="2">
-        <el-icon><icon-menu /></el-icon>
-        <span>Navigator Two</span>
-      </el-menu-item>
-      <el-menu-item index="3" disabled>
-        <el-icon><document /></el-icon>
-        <span>Navigator Three</span>
-      </el-menu-item>
-      <el-menu-item index="4">
-        <el-icon><setting /></el-icon>
-        <span>Navigator Four</span>
-      </el-menu-item>
-    </el-menu>
+        <!-- no pull down-->
+        <el-menu-item :index="el.path" v-else>
+          <el-icon><component :is="el.meta.icon"></component></el-icon>
+          <span>{{el.meta.title}}</span>
+        </el-menu-item>
+      </template>
+  </el-menu>
 </template>
 
 <script lang='ts'>
-import { defineComponent } from 'vue'
+import { defineComponent, ref } from 'vue'
 import {
   Location,
   Menu as IconMenu,
   Setting,
-  Document,
 } from '@element-plus/icons-vue'
+import { useRouter } from 'vue-router'
+import { KeyValObj } from '../../type/common'
+import { HOME_VIEW } from '@/router'
 export default defineComponent ({
   name: 'LeftSide',
   components: {
     Location,
     IconMenu,
     Setting,
-    Document,
   },
   props: {},
   emits: ['onClick'],
   setup() {
+    const router = useRouter()
+    console.log("router", router)
+    const dataSource: KeyValObj[] | undefined = router.options.routes.find(el => el.name === HOME_VIEW)?.children
+    const leftNavData = ref<KeyValObj[] | undefined>(dataSource)
     const handleOpen = (key: string, keyPath: string[]) => {
       console.log(key, keyPath)
     }
@@ -67,8 +60,9 @@ export default defineComponent ({
       console.log(key, keyPath)
     }
     return {
-       handleOpen,
-       handleClose
+      leftNavData,
+      handleOpen,
+      handleClose
     }
   }
 })
