@@ -1,5 +1,6 @@
 <template>
-  <div>User</div>
+  
+  <div>User<router-view/></div>
 </template>
 
 <script lang='ts'>

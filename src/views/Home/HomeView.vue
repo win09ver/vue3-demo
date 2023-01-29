@@ -41,14 +41,13 @@ export default defineComponent ({
 </script>
 <style lang='scss' scoped>
 .el-aside {
-    background-color: pink;
+    background-color: #545c64;
 }
 .el-header {
-    background-color: gold;
     width: 100%;
 }
 .el-main {
-    background-color: burlywood;
+    background-color: gainsboro;
     width: 100%;
 }
 .el-aside, .el-container, .common-layout, #app, body, html {

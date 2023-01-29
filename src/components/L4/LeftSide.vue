@@ -6,6 +6,7 @@
       default-active=""
       text-color="#fff"
       :collapse="!$store.state.HomeModule.navBool"
+      router
       @open="handleOpen"
       @close="handleClose"
     >

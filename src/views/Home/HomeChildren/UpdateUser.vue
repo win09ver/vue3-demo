@@ -1,5 +1,7 @@
 <template>
-  <div>UpdateUser</div>
+  UpdateUser
+  <div><router-view/></div>
+  
 </template>
 
 <script lang='ts'>
