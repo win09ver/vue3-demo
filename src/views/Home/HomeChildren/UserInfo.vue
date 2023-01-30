@@ -6,6 +6,7 @@
       <el-table-column
         prop="id"
         label="id"
+        sortable
       >
       </el-table-column>
       <el-table-column
@@ -29,6 +30,17 @@
         prop="name"
         label="name">
       </el-table-column>
+      <el-table-column prop="operation" label="operation">
+        <template #header>
+          <el-input
+            v-model="searchValue"
+            class="w-50 m-2"
+            placeholder="Please Input"
+            @blur="onBlur"
+            :prefix-icon="Search"
+          />
+        </template>
+      </el-table-column>
     </el-table>
     <!-- pagenation -->
     <el-pagination
@@ -45,15 +57,18 @@
 
 <script lang='ts'>
 import { link, url } from '@/request'
+import { Search } from '@element-plus/icons-vue'
 import { KeyValObj } from '@/type/common'
 import { defineComponent, reactive, toRefs, PropType, ref, onMounted } from 'vue'
 export default defineComponent ({
   name: 'UserInfo',
-  components: {},
+  components: {
+    Search
+  },
   props: {},
   emits: ['onClick'],
   setup(props, ctx) {
-    
+    const searchValue = ref("")
     const tableData = ref([])
     onMounted(() => {
       link(url.userlist, "GET").then((data: any) => {
@@ -62,15 +77,12 @@ export default defineComponent ({
       })
     })
 
-
     const currentPage = ref(1)
-    const pageSize = ref(15)
+    const pageSize = ref(10)
     const small = ref(false)
     const background = ref(false)
     const disabled = ref(false)
     
-
-
     // pageの表示件数を制御
     const handleSizeChange = (val: number) => {
       console.log(`${val} items per page`)
@@ -83,6 +95,10 @@ export default defineComponent ({
       console.log("tableData",tableData)
       currentPage.value = val
     }
+    // search input blur event
+    const onBlur = () => {
+      console.log("searchValue", searchValue.value)
+    }
     
     return {
        currentPage,
@@ -91,6 +107,9 @@ export default defineComponent ({
        disabled,
        pageSize,
        tableData,
+       searchValue,
+       Search,
+       onBlur,
        handleSizeChange,
        handleCurrentChange
     }
