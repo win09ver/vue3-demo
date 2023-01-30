@@ -40,7 +40,7 @@ const routes: Array<RouteRecordRaw> = [
           title: "UserInfo",
           icon: User
         },
-        component: () => import('../views/Home/HomeChildren/UserInfo.vue'),
+        // component: () => import('../views/Home/HomeChildren/UserInfo.vue'),
         children: [
           {
             path: '/user-info/user',
