@@ -35,6 +35,12 @@
           <div @click="handleEdit(scope.$index, scope.row)">
             <el-icon ><Edit /></el-icon>
           </div>
+          <el-button
+            size="small"
+            type="danger"
+            @click="handleDelete(scope.$index, scope.row)"
+            >Delete</el-button
+          >
         </template>
       </el-table-column>
     </el-table>
