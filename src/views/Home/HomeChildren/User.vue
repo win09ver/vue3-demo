@@ -60,9 +60,9 @@ import { Search } from '@element-plus/icons-vue'
 import { KeyValObj } from '@/type/common'
 import { defineComponent, reactive, toRefs, PropType, ref, onMounted } from 'vue'
 export default defineComponent ({
-  name: 'User',
+  name: 'UserComponent',
   components: {
-    Search
+    // Search
   },
   props: {},
   emits: ['onClick'],

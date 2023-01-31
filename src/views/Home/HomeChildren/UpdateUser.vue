@@ -32,15 +32,10 @@
       </el-table-column>
       <el-table-column prop="operation" label="operation">
         <template #default="scope">
-          <div @click="handleEdit(scope.$index, scope.row)">
-            <el-icon ><Edit /></el-icon>
+          <div class="icongroup">
+            <el-icon :size="20" @click="handleEdit(scope.$index, scope.row)"><Edit /></el-icon>
+            <el-icon :size="20" @click="handleDelete(scope.$index, scope.row)"><DeleteFilled /></el-icon>
           </div>
-          <el-button
-            size="small"
-            type="danger"
-            @click="handleDelete(scope.$index, scope.row)"
-            >Delete</el-button
-          >
         </template>
       </el-table-column>
     </el-table>
@@ -53,24 +48,37 @@
       @size-change="handleSizeChange"
       @current-change="handleCurrentChange"
     />
+    <UpdateUserDialog @changeShow="changeShow" @setValue="setValue" :dialogData="dialogData"/>
     <div><router-view/></div>
   </div>
 </template>
 
 <script lang='ts'>
 import { link, url } from '@/request'
-import { Edit } from '@element-plus/icons-vue'
+import { Edit, DeleteFilled } from '@element-plus/icons-vue'
+import UpdateUserDialog from '@/components/L3/dialogs/UpdateUserDialog.vue'
 import { defineComponent, reactive, toRefs, PropType, onMounted, ref } from 'vue'
+import { UpdateUserDialogData } from '@/type/dialogs'
 export default defineComponent ({
   name: 'UpdateUser',
   components: {
-    Edit
+    Edit,
+    DeleteFilled,
+    UpdateUserDialog,
   },
   props: {},
   emits: ['onClick'],
   setup(props, ctx) {
     const searchValue = ref("")
-    const tableData = ref([])
+    const tableData = ref<any>([])
+    const dialogData = reactive<UpdateUserDialogData>({
+      title: "Update User",
+      isShow: false,
+      form: {
+        title: "",
+        name: ""
+      }
+    })
 
     onMounted(() => {
       getAll()
@@ -103,13 +111,31 @@ export default defineComponent ({
     // 編集
     const handleEdit = (index: number, row: any) => {
       console.log(index, row)
+      dialogData.isShow = true
+      dialogData.form.title = tableData.value[index].title
+      dialogData.form.name = tableData.value[index].name
+      dialogData.index = index
     }
     // 削除
     const handleDelete = (index: number, row: any) => {
       console.log(index, row)
     }
+    // dialog btn event
+    const changeShow = async (isShow: boolean, prop: "cancel" | "confirm", index: number) => {
+      dialogData.isShow = isShow
+      if (prop === "confirm") {
+        await link(`${url.userlist}/${tableData.value[index]?.id}`, "PUT", {
+          title: dialogData.form.title,
+          name: dialogData.form.name,
+        })
+        getAll()
+      }
+    }
+    // dialog input value set
+    const setValue = (value:any, prop: "title" | "name") => {
+      dialogData.form[prop] = value
+    }
 
-    
     return {
        currentPage,
        background,
@@ -119,6 +145,10 @@ export default defineComponent ({
        tableData,
        searchValue,
        Edit,
+       DeleteFilled,
+       dialogData,
+       setValue,
+       changeShow,
        handleEdit,
        handleDelete,
        handleSizeChange,
@@ -128,4 +158,8 @@ export default defineComponent ({
 })
 </script>
 <style lang='scss' scoped>
+.icongroup {
+  text-align: center;
+  cursor: pointer;
+}
 </style>
