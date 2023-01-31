@@ -123,6 +123,7 @@ export default defineComponent ({
     // dialog btn event
     const changeShow = async (isShow: boolean, prop: "cancel" | "confirm", index: number) => {
       dialogData.isShow = isShow
+      if (!prop) return
       if (prop === "confirm") {
         await link(`${url.userlist}/${tableData.value[index]?.id}`, "PUT", {
           title: dialogData.form.title,

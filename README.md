@@ -70,3 +70,15 @@ json-server --watch data.json --port 8888
 
 ## set env
 must add prefix VUE_APP_
+
+## css reactive 関連
+yarn add lib-flexible
+
+# extation　px ⇒　rem
+css rem install
+
+# echarts install
+yarn add echarts
+https://echarts.apache.org/zh/index.html
+# eharts with vue
+https://github.com/ecomfe/vue-echarts/blob/main/README.zh-Hans.md

@@ -64,12 +64,9 @@
       "id": 123
     },
     {
-      "id": 1234,
-      "title": "yokohamatower1",
-      "type": "B",
-      "num": "1212",
-      "hometype": "2ldk",
-      "name": "wpp2"
+      "title": "いいね！",
+      "name": "ハハハハハ",
+      "id": 1234
     },
     {
       "id": 12312,
@@ -199,5 +196,14 @@
       "hometype": "2ldk",
       "name": "wpp1aaaaaa"
     }
+  ],
+  "chartone": [
+    {"title": "one", "num": 1987},
+    {"title": "two", "num": 197},
+    {"title": "three", "num": 124},
+    {"title": "four", "num": 678},
+    {"title": "five", "num": 5423},
+    {"title": "six", "num": 33},
+    {"title": "seven", "num": 890}
   ]
 }
