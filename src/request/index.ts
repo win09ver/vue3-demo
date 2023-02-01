@@ -9,7 +9,8 @@ export const url = {
     one: "/one",
     register: "/register",
     userlist: "/userlist",
-    chartone: "/chartone"
+    chartone: "/chartone",
+    charttwo: "/charttwo"
 }
 
 // export link service

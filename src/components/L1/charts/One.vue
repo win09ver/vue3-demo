@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2>population statistics</h2>
-    <div id="chartone" class="one" @click="onClick"></div>
+    <div id="chartone" class="one" @click="onClick($event)"></div>
   </div>
 </template>
 
@@ -70,15 +70,22 @@ export default defineComponent ({
                                 },
                             ])
                         }
+                    },
+                    select: {
+                        selectedMode: true,
+                        lable: {
+                            show: true,
+                        }
                     }
                 }
             ]
         })
+        
     })
 
     
-    const onClick = () => {
-        
+    const onClick = (event:any) => {
+        console.log("click",event)
     }
     return {
        onClick,
