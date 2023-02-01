@@ -18,9 +18,6 @@ export default defineComponent ({
 
     onMounted(async () => {
         const data: any = await link(url.charttwo, "GET")
-        console.log(data)
-
-
         const chart = echarts.init(document.getElementById("charttwo"))
         chart.setOption({
           xAxis: {
@@ -35,6 +32,7 @@ export default defineComponent ({
           },
           yAxis: {
             type: "value",
+            minInterval: 0,
             axisLine: {
                 lineStyle: {
                     color: "black"
@@ -151,7 +149,7 @@ export default defineComponent ({
                     },
                     {
                         offset: 1,
-                        color: "rgb(27,14,4)"
+                        color: "rgb(127,141,141)"
                     },
                 ]),
               },
@@ -163,7 +161,6 @@ export default defineComponent ({
         })
     })
 
-    
     const onClick = (event:any) => {
         console.log("click",event)
     }
