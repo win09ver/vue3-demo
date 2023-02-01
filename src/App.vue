@@ -6,9 +6,7 @@ import { defineComponent } from 'vue'
 import * as echarts from 'echarts'
 import { provide } from 'vue'
 export default defineComponent ({
-  name: 'Two',
-  components: {},
-  emits: ['onClick'],
+  name: 'App',
   setup() {
     provide("echarts", echarts)
     return {

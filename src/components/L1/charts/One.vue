@@ -7,6 +7,7 @@
 
 <script lang='ts'>
 import { link, url } from '@/request'
+import { ECharts } from 'echarts/types/dist/echarts'
 import { defineComponent, inject, onMounted, ref } from 'vue'
 
 export default defineComponent ({
@@ -22,7 +23,7 @@ export default defineComponent ({
         xdata.value = data.map((el:any) => el.title)
         ydata.value = data.map((el:any) => el.num)
 
-        const chart = echarts.init(document.getElementById("chartone"))
+        const chart: ECharts = echarts.init(document.getElementById("chartone"))
         chart.setOption({
             xAxis: {
                 type: "value",
@@ -55,6 +56,7 @@ export default defineComponent ({
                     itemStyle: {
                         normal: {
                             barBorderRadius: [0, 20, 20, 0],
+                            
                             color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [
                                 {
                                     offset: 0,

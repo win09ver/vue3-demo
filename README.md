@@ -79,6 +79,7 @@ css rem install
 
 # echarts install
 yarn add echarts
+yarn add  @types/echarts
 https://echarts.apache.org/zh/index.html
 # eharts with vue
 https://github.com/ecomfe/vue-echarts/blob/main/README.zh-Hans.md

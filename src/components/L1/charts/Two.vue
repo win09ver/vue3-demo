@@ -7,6 +7,7 @@
 
 <script lang='ts'>
 import { link, url } from '@/request'
+import { ECharts } from 'echarts/types/dist/echarts'
 import { defineComponent, inject, onMounted, ref } from 'vue'
 
 export default defineComponent ({
@@ -18,7 +19,7 @@ export default defineComponent ({
 
     onMounted(async () => {
         const data: any = await link(url.charttwo, "GET")
-        const chart = echarts.init(document.getElementById("charttwo"))
+        const chart:ECharts = echarts.init(document.getElementById("charttwo"))
         chart.setOption({
           xAxis: {
             type: "category",
