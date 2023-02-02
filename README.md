@@ -1,4 +1,4 @@
-# vue3-demo some memo
+# vue3-demo study with bilibili 「千锋前端vue项目实战，Vue+ElementUI物业后台管理系统」 & thanks a lot
 
 ## Project setup
 ```
