@@ -10,7 +10,8 @@ export const url = {
     register: "/register",
     userlist: "/userlist",
     chartone: "/chartone",
-    charttwo: "/charttwo"
+    charttwo: "/charttwo",
+    chartthree: "/chartthree"
 }
 
 // export link service

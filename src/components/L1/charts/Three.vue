@@ -1,23 +1,62 @@
 <template>
-  <div>3</div>
+  <h2>repair statistics</h2>
+  <div id="chartthree" class="three" @click="onClick($event)"></div>
 </template>
 
 <script lang='ts'>
-import { defineComponent, reactive, toRefs } from 'vue'
+import { link, url } from '@/request'
+import { ECharts } from 'echarts'
+import { defineComponent, inject, onMounted } from 'vue'
 export default defineComponent ({
   name: 'Three',
-  components: {},
-  emits: ['onClick'],
-  setup(props, ctx) {
-    console.log(ctx)
-    console.log(props)
-    const data = reactive({})
-    const refData = toRefs(data);
+  setup() {
+    const echarts:any = inject("echarts")
+
+    onMounted(async () => {
+        const data: any = await link(url.chartthree, "GET")
+        console.log(data)
+        const chart: ECharts = echarts.init(document.getElementById("chartthree"))
+        chart.setOption({
+          legend: {top: "bottom"},
+          tooltip: {
+
+          },
+          series: [
+                {
+                    type: "pie",
+                    data,
+                    radius: [10, 100],
+                    center: ["50%", "45%"],
+                    roseType: true,
+                    select: {
+                        selectedMode: true,
+                        lable: {
+                            show: true,
+                        }
+                    }
+                }
+            ]
+        })
+    })
+
+    const onClick = (event:any) => {
+        console.log("click",event)
+    }
     return {
-       ...refData,
+       ...onClick,
     }
   }
 })
 </script>
 <style lang='scss' scoped>
+h2 {
+  height: 0.6rem;
+  color: white;
+  line-height: 0.6rem;
+  text-align: center;
+  font-size: 0.25rem;
+}
+.three {
+  height: 4.5rem;
+}
 </style>

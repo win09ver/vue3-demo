@@ -13,7 +13,7 @@ import { defineComponent, inject, onMounted, ref } from 'vue'
 export default defineComponent ({
   name: 'One',
   components: {},
-  setup(props, ctx) {
+  setup() {
     const echarts:any = inject("echarts")
     const xdata = ref([])
     const ydata = ref([])
