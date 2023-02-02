@@ -85,12 +85,9 @@
       "name": "wpp4"
     },
     {
-      "id": 234,
       "title": "yokohamatower4",
-      "type": "B",
-      "num": "12",
-      "hometype": "2ldk",
-      "name": "wpp5"
+      "name": "wpp5",
+      "id": 234
     },
     {
       "id": 345,
@@ -198,38 +195,157 @@
     }
   ],
   "chartone": [
-    {"title": "one", "num": 1987},
-    {"title": "two", "num": 197},
-    {"title": "three", "num": 124},
-    {"title": "four", "num": 678},
-    {"title": "five", "num": 5423},
-    {"title": "six", "num": 33},
-    {"title": "seven", "num": 890}
+    {
+      "title": "one",
+      "num": 1987
+    },
+    {
+      "title": "two",
+      "num": 197
+    },
+    {
+      "title": "three",
+      "num": 124
+    },
+    {
+      "title": "four",
+      "num": 678
+    },
+    {
+      "title": "five",
+      "num": 5423
+    },
+    {
+      "title": "six",
+      "num": 33
+    },
+    {
+      "title": "seven",
+      "num": 890
+    }
   ],
   "charttwo": {
-    "day": ["Mon", "Two", "Wed", "Thr", "Fri", "Sta", "Sun"],
+    "day": [
+      "Mon",
+      "Two",
+      "Wed",
+      "Thr",
+      "Fri",
+      "Sta",
+      "Sun"
+    ],
     "num": {
-      "item1": [140, 232, 111, 264, 130, 340, 287],
-      "item2": [130, 245, 131, 274, 120, 340, 270],
-      "item3": [120, 253, 98, 264, 90, 344, 260],
-      "item4": [110, 262, 107, 280, 100, 240, 250]
+      "item1": [
+        140,
+        232,
+        111,
+        264,
+        130,
+        340,
+        287
+      ],
+      "item2": [
+        130,
+        245,
+        131,
+        274,
+        120,
+        340,
+        270
+      ],
+      "item3": [
+        120,
+        253,
+        98,
+        264,
+        90,
+        344,
+        260
+      ],
+      "item4": [
+        110,
+        262,
+        107,
+        280,
+        100,
+        240,
+        250
+      ]
     }
   },
   "chartthree": [
-    {"value": 667, "name": "itemZ"},
-    {"value": 567, "name": "itemY"},
-    {"value": 467, "name": "itemW"},
-    {"value": 367, "name": "itemX"},
-    {"value": 267, "name": "itemU"},
-    {"value": 167, "name": "itemV"}
+    {
+      "value": 667,
+      "name": "itemZ"
+    },
+    {
+      "value": 567,
+      "name": "itemY"
+    },
+    {
+      "value": 467,
+      "name": "itemW"
+    },
+    {
+      "value": 367,
+      "name": "itemX"
+    },
+    {
+      "value": 267,
+      "name": "itemU"
+    },
+    {
+      "value": 167,
+      "name": "itemV"
+    }
   ],
   "chartfour": {
-    "day": ["Mon", "Two", "Wed", "Thr", "Fri", "Sta", "Sun"],
+    "day": [
+      "Mon",
+      "Two",
+      "Wed",
+      "Thr",
+      "Fri",
+      "Sta",
+      "Sun"
+    ],
     "num": {
-      "normal": [320, 502, 401, 334, 390, 430, 720],
-      "middle": [234, 564, 443, 243, 754, 431, 321],
-      "special": [220, 321, 335, 534, 390, 344, 310],
-      "super": [123, 456, 789, 456, 654, 567, 654]
+      "normal": [
+        320,
+        502,
+        401,
+        334,
+        390,
+        430,
+        720
+      ],
+      "middle": [
+        234,
+        564,
+        443,
+        243,
+        754,
+        431,
+        321
+      ],
+      "special": [
+        220,
+        321,
+        335,
+        534,
+        390,
+        344,
+        310
+      ],
+      "super": [
+        123,
+        456,
+        789,
+        456,
+        654,
+        567,
+        654
+      ]
     }
   }
 }

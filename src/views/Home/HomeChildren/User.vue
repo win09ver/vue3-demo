@@ -57,8 +57,7 @@
 <script lang='ts'>
 import { link, url } from '@/request'
 import { Search } from '@element-plus/icons-vue'
-import { KeyValObj } from '@/type/common'
-import { defineComponent, reactive, toRefs, PropType, ref, onMounted } from 'vue'
+import { defineComponent, ref, onMounted } from 'vue'
 export default defineComponent ({
   name: 'UserComponent',
   components: {
@@ -66,7 +65,7 @@ export default defineComponent ({
   },
   props: {},
   emits: ['onClick'],
-  setup(props, ctx) {
+  setup() {
     const searchValue = ref("")
     const tableData = ref([])
 

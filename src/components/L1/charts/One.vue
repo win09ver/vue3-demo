@@ -11,7 +11,7 @@ import { ECharts } from 'echarts/types/dist/echarts'
 import { defineComponent, inject, onMounted, ref } from 'vue'
 
 export default defineComponent ({
-  name: 'One',
+  name: 'chart-one',
   components: {},
   setup() {
     const echarts:any = inject("echarts")

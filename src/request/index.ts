@@ -11,7 +11,8 @@ export const url = {
     userlist: "/userlist",
     chartone: "/chartone",
     charttwo: "/charttwo",
-    chartthree: "/chartthree"
+    chartthree: "/chartthree",
+    chartfour: "/chartfour"
 }
 
 // export link service

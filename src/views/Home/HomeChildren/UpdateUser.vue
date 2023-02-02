@@ -57,7 +57,7 @@
 import { link, url } from '@/request'
 import { Edit, DeleteFilled } from '@element-plus/icons-vue'
 import UpdateUserDialog from '@/components/L3/dialogs/UpdateUserDialog.vue'
-import { defineComponent, reactive, toRefs, PropType, onMounted, ref } from 'vue'
+import { defineComponent, reactive, onMounted, ref } from 'vue'
 import { UpdateUserDialogData } from '@/type/dialogs'
 export default defineComponent ({
   name: 'UpdateUser',
@@ -68,7 +68,7 @@ export default defineComponent ({
   },
   props: {},
   emits: ['onClick'],
-  setup(props, ctx) {
+  setup() {
     const searchValue = ref("")
     const tableData = ref<any>([])
     const dialogData = reactive<UpdateUserDialogData>({

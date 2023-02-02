@@ -1,4 +1,4 @@
-# vue3-demo
+# vue3-demo some memo
 
 ## Project setup
 ```
@@ -74,12 +74,24 @@ must add prefix VUE_APP_
 ## css reactive 関連
 yarn add lib-flexible
 
-# extation　px ⇒　rem
+# vscode extation　px ⇒　rem
 css rem install
-
+# QR code
+yarn add qrcode.vue
+https://www.npmjs.com/package/qrcode.vue
 # echarts install
 yarn add echarts
 yarn add  @types/echarts
 https://echarts.apache.org/zh/index.html
 # eharts with vue
 https://github.com/ecomfe/vue-echarts/blob/main/README.zh-Hans.md
+
+## other
+/router/index.ts
+``` javascript
+const router = createRouter({
+  // history: createWebHistory(process.env.BASE_URL), // hashにしないとbuild通らない
+  history: createWebHashHistory(process.env.BASE_URL),
+  routes
+})
+```

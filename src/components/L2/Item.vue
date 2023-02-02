@@ -5,12 +5,11 @@
 </template>
 
 <script lang='ts'>
-import { defineComponent, reactive, toRefs } from 'vue'
+import { defineComponent } from 'vue'
 export default defineComponent ({
-  name: 'Item',
+  name: 'chart-item-slot',
   components: {},
-  setup(props, ctx) {
-
+  setup() {
     return {
     }
   }
@@ -21,6 +20,6 @@ export default defineComponent ({
     height: 5.125rem;
     margin: 0.25rem;
     border: 1px, solid, grey;
-    background-color: rgb(98, 127, 129);
+    background-color: rgba(239, 246, 247, 0.747);
 }
 </style>

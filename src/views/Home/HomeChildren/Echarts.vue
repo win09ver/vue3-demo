@@ -28,7 +28,7 @@
 </template>
 
 <script lang='ts'>
-import { defineComponent, reactive, toRefs, PropType } from 'vue'
+import { defineComponent, reactive, toRefs } from 'vue'
 import Item from '@/components/L2/Item.vue'
 import One from '@/components/L1/charts/One.vue'
 import Two from '@/components/L1/charts/Two.vue'

@@ -8,7 +8,7 @@ import { link, url } from '@/request'
 import { ECharts } from 'echarts'
 import { defineComponent, inject, onMounted } from 'vue'
 export default defineComponent ({
-  name: 'Three',
+  name: 'chart-three',
   setup() {
     const echarts:any = inject("echarts")
 
@@ -22,28 +22,28 @@ export default defineComponent ({
 
           },
           series: [
-                {
-                    type: "pie",
-                    data,
-                    radius: [10, 100],
-                    center: ["50%", "45%"],
-                    roseType: true,
-                    select: {
-                        selectedMode: true,
-                        lable: {
-                            show: true,
-                        }
-                    }
+            {
+              type: "pie",
+              data,
+              radius: [10, 100],
+              center: ["50%", "45%"],
+              roseType: true,
+              select: {
+                selectedMode: true,
+                lable: {
+                  show: true,
                 }
-            ]
+              }
+            }
+          ]
         })
     })
 
-    const onClick = (event:any) => {
+    const onClick = (event: Event) => {
         console.log("click",event)
     }
     return {
-       ...onClick,
+       onClick,
     }
   }
 })

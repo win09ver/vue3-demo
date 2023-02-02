@@ -8,15 +8,13 @@
 <script lang='ts'>
 import { link, url } from '@/request'
 import { ECharts } from 'echarts/types/dist/echarts'
-import { defineComponent, inject, onMounted, ref } from 'vue'
+import { defineComponent, inject, onMounted } from 'vue'
 
 export default defineComponent ({
-  name: 'Two',
+  name: 'chart-two',
   components: {},
-  setup(props, ctx) {
+  setup() {
     const echarts:any = inject("echarts")
-
-
     onMounted(async () => {
         const data: any = await link(url.charttwo, "GET")
         const chart:ECharts = echarts.init(document.getElementById("charttwo"))

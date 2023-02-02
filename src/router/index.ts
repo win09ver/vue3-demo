@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
+import { createRouter, createWebHistory, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 import NotFound from '../components/L4/NotFound.vue'
 import {
   Management,
@@ -73,7 +73,8 @@ const routes: Array<RouteRecordRaw> = [
 ]
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  // history: createWebHistory(process.env.BASE_URL), // hashにしないとbuild通らない
+  history: createWebHashHistory(process.env.BASE_URL),
   routes
 })
 
