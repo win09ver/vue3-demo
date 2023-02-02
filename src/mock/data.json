@@ -1,0 +1,351 @@
+{
+  "one": [
+    {
+      "name": "EZ"
+    },
+    {
+      "name": "MF"
+    },
+    {
+      "name": "NOC"
+    },
+    {
+      "name": "EA"
+    }
+  ],
+  "register": [
+    {
+      "id": "1",
+      "name": "wpp",
+      "email": "win09ver@gmail.com",
+      "passwork": "123456"
+    },
+    {
+      "signUpUsername": "123",
+      "signUpPassword": "1234",
+      "mail": "121",
+      "id": "bz2gq6C"
+    },
+    {
+      "signUpUsername": "sdf",
+      "signUpPassword": "sdfgsdgfs",
+      "mail": "sdfgsgd",
+      "id": "QyiNTYd"
+    },
+    {
+      "signUpUsername": "1323",
+      "signUpPassword": "12awerasdf",
+      "mail": "2323",
+      "id": "SN7Iprw"
+    },
+    {
+      "signUpUsername": "1234454",
+      "signUpPassword": "4444444",
+      "mail": "1212",
+      "id": "Wy2liYw"
+    },
+    {
+      "signUpUsername": "wppp",
+      "signUpPassword": "3456666",
+      "mail": "afasdf",
+      "id": "G1v3fCF"
+    },
+    {
+      "signUpUsername": "1212",
+      "signUpPassword": "1qw2-Q",
+      "mail": "1212",
+      "id": "9J7tKbN"
+    }
+  ],
+  "userlist": [
+    {
+      "title": "bbbb",
+      "name": "aaad",
+      "id": 123
+    },
+    {
+      "title": "いいね！",
+      "name": "ハハハハハ",
+      "id": 1234
+    },
+    {
+      "id": 12312,
+      "title": "yokohamatower2",
+      "type": "B",
+      "num": "3221",
+      "hometype": "2ldk",
+      "name": "wpp3"
+    },
+    {
+      "id": 1243,
+      "title": "yokohamatower3",
+      "type": "B",
+      "num": "1234",
+      "hometype": "2ldk",
+      "name": "wpp4"
+    },
+    {
+      "title": "yokohamatower4",
+      "name": "wpp5",
+      "id": 234
+    },
+    {
+      "id": 345,
+      "title": "yokohamatower5",
+      "type": "B",
+      "num": "34",
+      "hometype": "2ldk",
+      "name": "wpp6"
+    },
+    {
+      "id": 566,
+      "title": "yokohamatower6",
+      "type": "A",
+      "num": "124d",
+      "hometype": "2ldk",
+      "name": "wpp7"
+    },
+    {
+      "id": 67,
+      "title": "tokyotower",
+      "type": "A",
+      "num": "1234",
+      "hometype": "2ldk",
+      "name": "wpp8"
+    },
+    {
+      "id": 7,
+      "title": "tokyotower22",
+      "type": "A",
+      "num": "333",
+      "hometype": "2ldk",
+      "name": "wppdtf"
+    },
+    {
+      "id": 1,
+      "title": "tokyotower434",
+      "type": "A",
+      "num": "12",
+      "hometype": "2ldk",
+      "name": "wppsdfg"
+    },
+    {
+      "id": 13,
+      "title": "tokyotower2",
+      "type": "A",
+      "num": "12",
+      "hometype": "2ldk",
+      "name": "wppss"
+    },
+    {
+      "id": 23,
+      "title": "tokyotower12",
+      "type": "B",
+      "num": "1111",
+      "hometype": "2ldk",
+      "name": "wppsdf"
+    },
+    {
+      "id": 98,
+      "title": "yokohamatower",
+      "type": "A",
+      "num": "34",
+      "hometype": "2ldk",
+      "name": "wpp1ddd"
+    },
+    {
+      "id": 89,
+      "title": "yokohamatower",
+      "type": "A",
+      "num": "3243",
+      "hometype": "2ldk",
+      "name": "wpp1fgg"
+    },
+    {
+      "id": 99,
+      "title": "yokohamatower",
+      "type": "BV",
+      "num": "1111",
+      "hometype": "2ldk",
+      "name": "wpp1hhh"
+    },
+    {
+      "id": 88,
+      "title": "yokohamatower",
+      "type": "A",
+      "num": "1111",
+      "hometype": "2ldk",
+      "name": "wpp1aaa"
+    },
+    {
+      "id": 6322,
+      "title": "yokohamatower",
+      "type": "A",
+      "num": "1111",
+      "hometype": "2ldk",
+      "name": "wpp1sddsd"
+    },
+    {
+      "id": 123,
+      "title": "yokohamatower",
+      "type": "A",
+      "num": "1111",
+      "hometype": "2ldk",
+      "name": "wpp1aaaaaa"
+    }
+  ],
+  "chartone": [
+    {
+      "title": "one",
+      "num": 1987
+    },
+    {
+      "title": "two",
+      "num": 197
+    },
+    {
+      "title": "three",
+      "num": 124
+    },
+    {
+      "title": "four",
+      "num": 678
+    },
+    {
+      "title": "five",
+      "num": 5423
+    },
+    {
+      "title": "six",
+      "num": 33
+    },
+    {
+      "title": "seven",
+      "num": 890
+    }
+  ],
+  "charttwo": {
+    "day": [
+      "Mon",
+      "Two",
+      "Wed",
+      "Thr",
+      "Fri",
+      "Sta",
+      "Sun"
+    ],
+    "num": {
+      "item1": [
+        140,
+        232,
+        111,
+        264,
+        130,
+        340,
+        287
+      ],
+      "item2": [
+        130,
+        245,
+        131,
+        274,
+        120,
+        340,
+        270
+      ],
+      "item3": [
+        120,
+        253,
+        98,
+        264,
+        90,
+        344,
+        260
+      ],
+      "item4": [
+        110,
+        262,
+        107,
+        280,
+        100,
+        240,
+        250
+      ]
+    }
+  },
+  "chartthree": [
+    {
+      "value": 667,
+      "name": "itemZ"
+    },
+    {
+      "value": 567,
+      "name": "itemY"
+    },
+    {
+      "value": 467,
+      "name": "itemW"
+    },
+    {
+      "value": 367,
+      "name": "itemX"
+    },
+    {
+      "value": 267,
+      "name": "itemU"
+    },
+    {
+      "value": 167,
+      "name": "itemV"
+    }
+  ],
+  "chartfour": {
+    "day": [
+      "Mon",
+      "Two",
+      "Wed",
+      "Thr",
+      "Fri",
+      "Sta",
+      "Sun"
+    ],
+    "num": {
+      "normal": [
+        320,
+        502,
+        401,
+        334,
+        390,
+        430,
+        720
+      ],
+      "middle": [
+        234,
+        564,
+        443,
+        243,
+        754,
+        431,
+        321
+      ],
+      "special": [
+        220,
+        321,
+        335,
+        534,
+        390,
+        344,
+        310
+      ],
+      "super": [
+        123,
+        456,
+        789,
+        456,
+        654,
+        567,
+        654
+      ]
+    }
+  }
+}
